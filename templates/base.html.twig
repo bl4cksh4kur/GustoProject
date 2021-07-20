@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+
+ <title>{% block title %} {% endblock %}</title>
+  <meta content="Bienvenue sur le site officiel de Gusto-Coffee" name="description">
+  
+  <!-- Favicons -->
+  <link href="{{ asset('assets/logo_fav.png')}}" rel="icon">
+  <link href="{{ asset('assets/logo_fav.png')}}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+{% block stylesheets %}
+  <!-- Vendor CSS Files -->
+  <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
+  <link href="{{ asset('assets/css/style.css')}}" rel="stylesheet">
+
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  
+
+
+{% endblock %}
+
+{% block javcascript %}
+
+
+{% endblock %}
+
+   {% if block ('headerhome') is defined %}
+   <!-- ======= Header ======= -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="/" class="logo d-flex align-items-center">
+        <img src="{{ asset('assets/logo.png')}}" alt="gusto-logo">
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#home">Accueil</a></li>
+          <li><a class="nav-link scrollto" href="#spaces">Espace de travail</a></li>
+            <li><a class="nav-link scrollto" href="{{path('product')}}">Nos produits</a></li>
+            
+            <li class="dropdown"><a href=""><span>Gusto +</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="#emplacement">Emplacements</a></li>
+              <li><a href="#services">Nos services</a></li>
+              <li><a href="{{path('faq')}}">F.A.Q</a></li>
+            </ul>
+          </li>
+
+          {% if not app.user %}
+          <li><a class="nav-link" href="{{ path('app_login') }}">Connexion</a></li>
+          <li><a class="nav-link" href="{{ path('register')}}">Inscription</a></li>
+          {% endif %}
+          {% if app.user %}
+          <li><a class="nav-link" href="{{path('account')}}">Mon compte</a></li>
+          <li><a class="nav-link" href="{{ path('app_logout') }}">Deconnexion</a></li>
+          {% endif %}
+          <a href="{{path('cart')}}">
+          <img src="{{ asset('assets/img/shopcart.png')}}" class="cart-icon "alt="Mon panier">
+          </a>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header>
+  {% endif %}
+  <!-- End Header -->
+
+ <!-- NAVBAR pour les autre pages  -->
+  {% if block ('navbar') is defined %}
+<header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+      <a href="/" class="logo d-flex align-items-center">
+        <img src="{{ asset('assets/logo.png')}}" alt="gusto-logo">
+      </a>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link" href="/">Revenir à l'accueil</a></li>
+
+          {% if not app.user %}
+          <li><a class="nav-link" href="{{ path('app_login')}}">Connexion</a></li>
+          {% endif %}
+
+           {% if app.user %}
+          <li><a class="nav-link" href="{{ path('account')}}">Mon compte</a></li>
+          <li><a class="nav-link" href="{{ path('app_logout')}}">Deconnexion</a></li>
+          {% endif %}
+
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+  <!-- NAVBAR pour les autre pages  -->
+
+    </div>
+  </header>
+  {% endif %}
+
+
+
+
+</head>
+
+<body>
+  {% block content %}
+
+  
+  {% endblock %}
+
+</body>
+
+{% block script %}
+
+{% endblock %}
+
+{% if block ('footer') is defined %}
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-5 col-md-12 footer-info">
+            <a href="#" class="logo d-flex align-items-center">
+              <img src="{{ asset('assets/img/logo.png')}}" alt="gusto-logo">
+              <span>Gusto-Coffee</span>
+            </a>
+            <p>Nous sommes tous unis. C'est un effort d'équipe.</br>Nous recherchons toujours de nouvelles rencontres.</p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bi bi-instagram bx bxl-instagram"></i></a>
+              <a href="#" class="linkedin"><i class="bi bi-linkedin bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Liens</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="/">Accueil</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="#emplacement">Emplacement</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{path('faq')}}">Foire aux questions</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{path('conditions')}}">CGU</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-2 col-6 footer-links">
+            <h4>Services</h4>
+            <ul>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{ path('space_private')}}">Réserver une salle</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{path('space_public')}}">Réserver une place</a></li>
+              <li><i class="bi bi-chevron-right"></i> <a href="{{path('product')}}">Nos produits</a></li>
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+            <h4>Contactez-nous</h4>
+            <p>
+              <strong>Adresse siège social :</strong></br>
+              64 rue d'amsterdam <br>
+              Paris - 75000<br>
+              France <br><br>
+              <strong>Tél:</strong> +33169000200<br>
+              <strong>Email:</strong> contact@gusto-cowork.fr<br>
+            </p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>2021 Gusto-Coffee </span></strong>- Tous Droits Réservés.
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+{% endif %}
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  {% block javascripts %}
+  <!-- Vendor JS Files -->
+
+
+  
+  <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.js')}}"></script>
+  <script src="{{ asset('assets/vendor/aos/aos.js')}}"></script>
+  <script src="{{ asset('assets/vendor/php-email-form/validate.js')}}"></script>
+  <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+  <script src="{{ asset('assets/vendor/purecounter/purecounter.js')}}"></script>
+  <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+  <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+  
+  <script src="{{ asset('assets/js/tool.js')}}"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<!-- DATEPICKER  -->
+  <script src="{{ asset('assets/js/jquery.timepicker.min.js')}}"></script>
+  <script src="{{ asset('assets/js/jquery-ui-i18n.min.js')}}"></script>
+
+  
+  <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+
+
+  <!-- Template Main JS File -->
+  <script src="{{ asset('assets/js/main.js')}}"></script>
+ 
+
+ 
+
+  <script type="application/javascript">
+                $( "#booking_startDate_time" ).timepicker({
+                    timeFormat: 'HH:mm',
+                    interval: 60,
+                    minTime: '7',
+                    maxTime: '19:00am',
+                    defaultTime: '7',
+                    startTime: '7:00',
+                    dynamic: false,
+                    dropdown: true,
+                    scrollbar: true
+                });
+                $( "#booking_endDate_time" ).timepicker({
+                    timeFormat: 'HH:mm',
+                    interval: 60,
+                    minTime: '7',
+                    maxTime: '20:00am',
+                    defaultTime: '8',
+                    startTime: '7:00',
+                    dynamic: false,
+                    dropdown: true,
+                    scrollbar: true
+                });
+                $( function() {
+                    $( "#booking_startDate_date" ).datepicker({
+                        dateFormat: 'dd-mm-yy',
+                        inline: true,
+                        showButtonPanel:false,
+                        showWeek: false,
+                        firstDay: 1,
+                        minDate: 0,
+                        currentText: 'Aujourd\'hui',
+                        closeText: 'Fermer',
+                        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                        monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+                        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                        dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+                        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+                        weekHeader: 'Sem.',
+                    });
+
+                } );
+                $( function() {
+                    $( "#booking_endDate_date" ).datepicker({
+                        dateFormat: 'dd-mm-yy',
+                        showButtonPanel:false,
+                        showWeek: false,
+                        firstDay: 1,
+                        minDate: 0,
+                        currentText: 'Aujourd\'hui',
+                        closeText: 'Fermer',
+                        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                        monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+                        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                        dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+                        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+                        weekHeader: 'Sem.',
+                        placeholder: 'test'
+
+                    });
+                    
+                } );
+
+                let today = new Date();
+                let formated_date = today.getDate() + "-" + (today.getMonth() + 1) + "-"  + today.getFullYear()
+                document.querySelector("#booking_startDate_date").value = formated_date;
+                document.querySelector("#booking_endDate_date").value = formated_date;
+                
+            </script>
+
+      <!-- ======= Pour les place ======= -->
+
+            <script type="application/javascript">
+                $( "#booking_place_startDate_time" ).timepicker({
+                    timeFormat: 'HH:mm',
+                    interval: 60,
+                    minTime: '7',
+                    maxTime: '19:00am',
+                    defaultTime: '7',
+                    startTime: '7:00',
+                    dynamic: false,
+                    dropdown: true,
+                    scrollbar: true
+                });
+                $( "#booking_place_endDate_time" ).timepicker({
+                    timeFormat: 'HH:mm',
+                    interval: 60,
+                    minTime: '7',
+                    maxTime: '20:00am',
+                    defaultTime: '8',
+                    startTime: '7:00',
+                    dynamic: false,
+                    dropdown: true,
+                    scrollbar: true
+                });
+                $( function() {
+                    $( "#booking_place_startDate_date" ).datepicker({
+                        dateFormat: 'dd-mm-yy',
+                        inline: true,
+                        showButtonPanel:false,
+                        showWeek: false,
+                        firstDay: 1,
+                        minDate: 0,
+                        currentText: 'Aujourd\'hui',
+                        closeText: 'Fermer',
+                        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                        monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+                        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                        dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+                        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+                        weekHeader: 'Sem.',
+                    });
+
+                } );
+                $( function() {
+                    $( "#booking_place_endDate_date" ).datepicker({
+                        dateFormat: 'dd-mm-yy',
+                        showButtonPanel:false,
+                        showWeek: false,
+                        firstDay: 1,
+                        minDate: 0,
+                        currentText: 'Aujourd\'hui',
+                        closeText: 'Fermer',
+                        monthNames: ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+                        monthNamesShort: ['Janv.', 'Févr.', 'Mars', 'Avril', 'Mai', 'Juin', 'Juil.', 'Août', 'Sept.', 'Oct.', 'Nov.', 'Déc.'],
+                        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+                        dayNamesShort: ['Dim.', 'Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.'],
+                        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+                        weekHeader: 'Sem.',
+                        placeholder: 'test'
+
+                    });
+
+                } );
+
+
+                let today1 = new Date();
+                let formated_date1 = today1.getDate() + "-" + (today1.getMonth() + 1) + "-"  + today1.getFullYear()
+                document.querySelector("#booking_place_startDate_date").value = formated_date1;
+                document.querySelector("#booking_place_endDate_date").value = formated_date1;
+            </script>
+
+ {% endblock %}
+
+</html>
+

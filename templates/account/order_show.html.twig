@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar %}{% endblock %}
+
+{% block title %}Voir ma commande - Gusto-Cowork
+{% endblock %}
+
+{% block content %}
+
+
+	<section id="spaces" class="values">
+
+		<div class="container" data-aos="fade-up"></br>
+
+		<img src="{{ asset('assets/img/payme2.png')}}" width="200"></br>
+
+	<strong>Commande passée le :</strong>
+	{{ order.createdAt | date('d/m/Y')}}<br/>
+	<strong>Référence de ma commande :</strong>
+	{{ order.reference}}<br/>
+	<hr>
+	<strong>Détails :</strong>
+
+
+	<table class="table mt-4">
+		<thead>
+			<tr>
+				<th scope="col">Produit</th>
+				<th scope="col">Quantité</th>
+				<th scope="col">Prix unitaire</th>
+				<th scope="col">Total</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for product in order.orderDetails %}
+
+
+				<tr>
+					<td>{{product.product}}</td>
+					<td>x{{product.quantity}}</td>
+					<td>{{ (product.price / 100) | number_format(2, ',', '.') }}
+						€</td>
+					<td>{{ (product.total / 100) | number_format(2, ',', '.') }}
+						€</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<div class="text-right">
+
+		<strong>Total :</strong>
+		{{ (order.getTotal / 100) | number_format(2, ',', '.')}}
+		€
+	</div>
+	<hr>
+	<a href="{{ path('account_order')}}">Revenir en arrière</a>
+
+
+</div></section>{% endblock %}{% block footer %}{% endblock %}

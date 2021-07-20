@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Votre réservation - Gusto-Cowork{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+
+{% set debuthc = "08:00" %}
+{% set finhc = "17:00" %}
+{% set promohour = 3 %}
+{% set promohour2 = space.price %}
+
+</br>
+</br>
+<div class="container mt-4" data-aos="fade-up">
+      
+ 
+<section id="about" class="about">
+  
+	<div class="container" data-aos="fade-up">
+		<div class="row gx-0">
+
+			<div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+				<div class="content">
+        <h2>Réservez 3 heures ou + entre 9h et 16h </br>et bénéficiez de -20€ !</h2></br>
+					<h2>Votre réservation</h2>
+          <p class="card-text"><b>Nom de la salle : </b>{{ space.title }}</p>
+          <p class="card-text"><b>Type d'espace : </b>{{ space.nbPlace }} places</strong> | {{ space.price }} € / heure</p>
+          <p class="card-text"><b>Adresse : </b>{{ space.adress }}</p>
+          <p class="card-text"><b>Nombre d'heures choisies : </b>{{ locationDuration }}h </p>
+          <p class="card-text"><b>Prix : </b>{{prixSansReduction}}€</p>
+          <hr>
+          <h3>Votre arrivée :</h3>
+          <strong><p class="text-center">{{startDate | date("d/m/Y à H:i")}}</p></strong>
+          <h3>Votre départ :</h3>
+          <strong><p class="text-center">{{endDate | date("d/m/Y à H:i")}}</p></strong>
+          <hr>
+                {# Prix total #}
+                {% if startDate|date("H:i") > debuthc and endDate|date("H:i") < finhc %}
+                <center><b><p style="font-size: 15px"><h3>Prix total de la réservation :</h3> </p></b><p style=" font-size: 22px"><strong>{{ prixTotal }}€</strong></p></center>
+                {% else %}
+                <center><b><p style="font-size: 22px"><h3>Prix total de la réservation :</h3> </p></b><p style=" font-size: 22px"><strong> {{ prixTotal  }}€</strong></p></center>
+                {% endif %}
+          <hr>
+            <a href="{{ path('booking') }}" class="btn btn-warning btn-block" style="background-color:#ffd450;border-color: transparent">Choisir une autre salle</a>
+             <a href="{{ path('space_private') }}" class="btn btn-warning btn-block" style="background-color:#ffd450;border-color: transparent">Modifier les horaires de réservation</a>
+          <hr>
+             <center><a href="{{ path('checkout_private_room', {title: space.title}) }}" class="btn btn-warning btn-block" style="background-color:#ffd450;border-color: transparent">Confirmer la réservation</a></center>
+        
+				</div>
+			</div>
+			<div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+				<img src="assets/img/reserv.png" class="img-fluid" alt="reservation">
+			</div>
+		</div>
+	</div>
+  
+
+</section>
+<!-- End -->
+
+
+</div>
+
+
+{% endblock %}
+{% block footer %}{% endblock %}

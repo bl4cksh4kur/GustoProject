@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réaumur - Gusto-Cowork{% endblock %}
+
+{% block navbar %} {% endblock %}
+
+{% block content %}
+
+<section id="features" class="features">
+
+      <div class="container" data-aos="fade-up">
+               <div class="row feature-icons" data-aos="fade-up">
+          <h3>Gusto Réamur</h3>
+
+          <div class="row">
+
+            <div class="col-xl-4 text-center" data-aos="fade-right" data-aos-delay="100">
+              <img src="{{ asset('assets/img/adress2.png')}}" class="img-fluid p-4" alt="gustoreamur">
+            </div>
+
+            <div class="col-xl-8 d-flex content">
+              <div class="row align-self-center gy-4">
+
+                <div data-aos="fade-up">
+                  <div>
+                    <h2>Plus d'informations</h2>
+                    <p>Gusto Réamur est situé à proximité de Châtelet - Les Halles, Beaubourg et le quartier Réaumur de Sébastopol. Des espaces de réunion privés et une salle de conférence sont à votre disposition. Parfait pour travailler au cœur de Paris, ce café offre une vue imprenable sur le Conservatoire National des Arts et Métiers.</p>
+                  </div>
+                <hr>
+                  <div data-aos="fade-up">
+                  <div>
+                    <h4>Adresse</h4>
+                    <p>41 Rue Réaumur, Paris 75003</p>
+                    <p>Métro : Arts et Métiers <img src="{{ asset('assets/img/metro5.svg')}}" width="20px"/> - Métro : Réaumur Sébastopol <img src="{{ asset('assets/img/metro3.svg')}}" width="20px"/> <img src="{{ asset('assets/img/metro4.svg')}}" width="20px"/></p>
+                  </div>
+                <hr>
+                  <div data-aos="fade-up">
+                  <div>
+                    <h4>Horaires</h4>
+                    <p>Lundi à Dimanche : 7h00 à 20h</p>
+                  </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End Features Section -->
+
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

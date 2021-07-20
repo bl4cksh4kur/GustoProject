@@ -1,0 +1,124 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar %}{% endblock %}
+
+{% block title %}Mes réservations - Gusto-Cowork{% endblock %}
+
+{% block content %}
+
+<section id="spaces" class="values">
+
+    <div class="container" data-aos="fade-up">
+
+ <header class="section-header">
+<h2>Retrouvez l'ensemble de vos réservation</h2>
+<p>Mes réservations</p>
+</header>
+
+
+{% if app.user.bookings|length == 0 %} {# Si il n'y a aucun booking alors #}
+
+<p class="text-center">
+Vous n'avez pas encore réserver de <b>salle privée</b></br>
+Pour réserver une salle privé <a href="{{path('space_private')}}">cliquez ici.</a></br>
+</p>
+
+{% else %}
+
+
+<div class="card">
+  <div class="card-header">
+    <center>Votre réservation de salle</center>
+  </div>
+
+<div class="card-body">
+    <table class="table mt-3">
+        <thead>
+        <tr>
+            <th>Nom de la salle</th>
+            <th>Début de la réservation</th>
+            <th>Fin de la réservation</th>
+            <th>Durée de la réservation</th>
+            <th>Prix</th>
+        </tr>
+        </thead>
+
+          <tbody>
+            {% for booking in app.user.bookings %}
+              <tr>
+                    <td data-label="Nom de la salle">{{booking.space}}</td>
+                    <td data-label="Début de la réservation">{{booking.startDate | date("d/m/Y à H:i")}}h</td>
+                    <td data-label="Fin de la réservation">{{booking.endDate | date("d/m/Y à H:i")}}h</td>
+                    <td data-label="Durée de la réservation">{{booking.locationDuration}} h</td>
+                    <td data-label="Prix">{{booking.total}}€</td>
+              </tr>
+           {% endfor %}
+          </tbody>
+      </table>
+        
+  
+    </div>
+     </div>
+      
+   
+{% endif %}
+
+{% if app.user.bookingPlaces|length == 0 %} {# Si il n'y a aucun booking alors #}
+
+
+<p class="text-center">
+Vous n'avez pas encore réserver <b>de place</b></br>
+Pour réserver une place publique <a href="{{path('space_public')}}">cliquez ici.</a></br>
+</p>
+
+{% else %}
+
+    </br>
+  <div class="card">
+  <div class="card-header">
+    <center>Votre réservation de place</center>
+  </div>
+
+<div class="card-body">
+    <table class="table mt-3">
+        <thead>
+        <tr>
+            <th>Numéro de place</th>
+            <th>Début de la réservation</th>
+            <th>Fin de la réservation</th>
+            <th>Durée de la réservation</th>
+            <th>Prix</th>
+        </tr>
+        </thead>
+
+          <tbody>
+            {% for bookingPlace in app.user.bookingPlaces %}
+              <tr>
+                    <td data-label="Numéro de place">{{bookingPlace.place}}</td>
+                    <td data-label="Début de la réservation">{{bookingPlace.startDate | date("d/m/Y à H:i")}}h</td>
+                    <td data-label="Fin de la réservation">{{bookingPlace.endDate | date("d/m/Y à H:i")}}h</td>
+                    <td data-label="Durée de la réservation">{{bookingPlace.locationDuration}} h</td>
+                    <td data-label="Prix">{{bookingPlace.total}}€</td>
+              </tr>
+           {% endfor %}
+          </tbody>
+      </table>
+        
+  
+    </div>
+    </div>
+    </br>
+   
+{% endif %}
+
+<div class="text-center">
+ <center><a href="{{ path('account')}}">Retour au dashboard</a></center>
+<img src="{{ asset('assets/img/reservation.png')}}" width="400px">
+</div>
+
+</div>
+</section>
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

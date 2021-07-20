@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mot de passe oublié - Gusto-Cowork{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+<section id="features" class="features">
+  
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+
+        <!-- Feature Tabs -->
+        <div class="row feture-tabs" data-aos="fade-up">
+          <div class="col-lg-6">
+   <img src="{{asset('assets/img/resetpass.png')}}" style="width: 200px">
+            <!-- Tabs -->
+            <ul class="nav nav-pills mb-3">
+              <li>
+                <a class="nav-link" data-bs-toggle="pill">Réinitialiser mon mot de passe - Etape 2</a>
+              </li>
+            </ul><!-- End Tabs -->
+    {% for message in app.flashes('notice') %}
+            <div class="alert alert-warning">{{ message }}</div>
+    {% endfor %}
+
+    {% for message in app.flashes('notice') %}
+            <div class="alert alert-warning">{{ message }}</div>
+    {% endfor %}
+
+  
+    {{form(form)}}
+
+</div>
+</section>
+{% endblock %}
+
+{% block footer %}{% endblock %}

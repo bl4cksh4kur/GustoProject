@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Réservation de place - Gusto-Cowork{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+
+{# BOOKING PLACE #}
+
+<section id="spaces" class="values">
+
+    <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Place de travail disponible :</h2>
+          <p>{{startDate | date("d/m/Y à H:i")}}h 
+              {{endDate | date("d/m/Y à H:i")}}h<br></p><br>
+            <h2>Heure total : {{ locationDuration }}h (5 € / heure)</h2><br>
+            <img src="{{asset('assets/img/seat.png')}}" class="img-fluid" width="30"> Places libres | <img src="{{asset('assets/img/seat-off.png')}}" class="img-fluid" width="30">Places réservées 
+        </header>
+  <br>
+  <br>
+  <br>
+
+      <div class="row" style="justify-content:center;">
+  {% for places in place %}
+       <div class="col-lg-1 col-md-2 col-sm-1 mt-1 mt-lg-0" style="padding-right: 0px;
+    padding-left: 0px; margin-left:-20px; margin-right:-20px; margin-top: -10px; margin-bottom: -5px;">
+            <div class="container" data-aos="fade-up" data-aos-delay="50">
+
+
+        {% if places.title not in idPlaceFree and idPlaceFree|length == 0 %}
+         <a href="{{ path('booking_place_reservation', {title: places.title }) }}"><img src="{{asset('assets/img/seat.png')}}" class="img-fluid" width="50"></a>
+    
+        {% elseif places.title not in idPlaceFree and idPlaceFree|length > 0  %}
+              <img src="{{asset('assets/img/seat-off.png')}}" class="img-fluid" width="50">
+        {% else %}
+          <a href="{{ path('booking_place_reservation', {title: places.title }) }}"><img src="{{asset('assets/img/seat.png')}}" class="img-fluid" width="50"></a>
+        {% endif %}
+           </div>
+        </div>
+
+  {% endfor %}
+  
+  </div>
+</section>
+
+<center><img src="{{ asset('assets/img/reservation.png')}}" width="500px"></center>
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

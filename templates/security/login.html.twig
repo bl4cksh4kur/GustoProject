@@ -1,0 +1,90 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se connecter - Gusto-Cowork{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+<section id="features" class="features">
+
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+
+
+        <!-- Feature Tabs -->
+        <div class="row feture-tabs" data-aos="fade-up">
+          <div class="col-lg-6">
+
+            <!-- Tabs -->
+            <ul class="nav nav-pills mb-3">
+              <li>
+                <a class="nav-link active" data-bs-toggle="pill">Connectez vous afin de pouvoir réserver, passer commande !</a>
+              </li>
+            </ul><!-- End Tabs -->
+
+<div class="card">
+  <div class="card-header">
+    Connexion
+  </div>
+
+
+<div class="card-body">
+
+               <form method="post">
+
+    {% if error %}
+        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+
+       {% for message in app.flashes('notice') %}
+            <div class="alert alert-warning">{{ message }}</div>
+    {% endfor %}
+
+    {% if app.user %}
+        <div class="mb-3">
+            Bienvenue, {{ app.user.username }}, <a href="{{ path('app_logout') }}">Deconnexion</a>
+        </div>
+    {% endif %}
+
+    <label for="inputEmail">Votre email :</label>
+    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Veuillez saisir votre email" required autofocus>
+    <label for="inputPassword">Votre mot de passe :</label>
+    <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Veuillez saisir votre mot de passe" required>
+
+    <input type="hidden" name="_csrf_token"
+           value="{{ csrf_token('authenticate') }}"
+    >
+    </br>
+    <button class="btn btn-lg btn-warning" type="submit">
+        Se connecter
+    </button>
+</form>
+<br/>
+Mot de passe oublié ? <a href="{{path('reset_password')}}">cliquez ici</a></br>
+Vous n'avez pas encore de compte ? <a href="{{path('register')}}">Inscrivez-vous</a> gratuitement !</br>
+
+
+
+              
+            </div>
+
+          </div>
+
+          
+
+        </div><!-- End Feature Tabs -->
+
+        <div class="col-lg-4">
+            <img src="{{asset('assets/img/login.png')}}" class="img-fluid" alt="gusto-connexion">
+          </div>
+
+      </div>
+
+      
+
+    </section><!-- End Features Section -->
+
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

@@ -1,0 +1,228 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil - Gusto-Cowork{% endblock %}
+
+{% block headerhome %}{% endblock %}
+
+{% block content %}
+
+<!-- Header PLAN -->
+  <section id="home" class="hero d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">Réservez 3 heures ou + entre 9h-16h et
+bénéficiez d'une heure offerte !</h1>
+          <h2 data-aos="fade-up" data-aos-delay="400"> Que vous soyez une grande entreprise établie ou une start-up en croissance, découvrez des espaces qui seront une source d'inspiration pour vos projets les plus influents.</h2>
+          <div data-aos="fade-up" data-aos-delay="600">
+            <div class="text-center text-lg-start">
+              <a href="#spaces" class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
+                <span>Voir nos espaces</span>
+                <i class="bi bi-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <img src="assets/img/hero-img.png" class="img-fluid" alt="gusto-accueil">
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- FIN Header PLAN -->
+
+<!-- Nos Espaces -->
+<section id="spaces" class="values">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Pour les entreprises de toutes tailles, Gusto-Coffee offre une portée et une flexibilité mondiales.</br>
+                Pour permettre à votre entreprise de s'adapter à l'incertitude et trouvez l'espace qui vous convient.</h2>
+          <p>Espace de travail privé et travail commun (coworking)</p>
+        </header>
+
+        <div class="row">
+
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box" data-aos="fade-up" data-aos-delay="600">
+              <img src="assets/img/values-3.png" class="img-fluid" alt="gusto-salle-prive">
+              <h3>Salles privés</h3>
+              <p>Des espaces fermés pouvant accueillir les équipes comptant jusqu'à 4 à 6 membres, avec accès, aux salons et aux équipements partagés de Gusto Coffee.</p>
+              <a href="/espace-prive" style="text-decoration: none">
+              <button type="button" class="btn btn-warning">Réserver mon salon privé !</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box" data-aos="fade-up" data-aos-delay="600">
+              <img src="assets/img/values-2.png" class="img-fluid" alt="gusto-place">
+              <h3>Poste de travail attribué</h3>
+              <p>Visitez l'espace de travail ouvert à l'heure spécifiée, sélectionnez l'emplacement souhaité et commencez à travailler, avec un petit café pourquoi pas ?</p>
+               <a href="/espace-publique" style="text-decoration: none">
+              <button type="button" class="btn btn-warning">Réserver mon poste !</button>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-4">
+            <div class="box" data-aos="fade-up" data-aos-delay="200">
+              <img src="assets/img/corona.png" class="img-fluid" alt="gusto-covid-news">
+              <h3>Gusto-Coffee & Covid-19</h3>
+              <p>En raison de la crise sanitaire, nous désinfectons régulièrement nos espaces publics et vous fournissons gratuitement des produits de désinfection dans nos locaux.</p>
+               <a href="/covid-news" style="text-decoration: none">
+              <button type="button" class="btn btn-warning">En savoir plus..</button>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+    <!-- FIN NOS ESPACES -->
+
+    <!-- ======= Nos EMPLACEMENTS ======= -->
+    <section id="emplacement" class="team">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Nos emplacements</h2>
+          <p>Un lieu, une adresse, on commence ?</p>
+        </header>
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="member">
+              <div class="member-img">
+                <img src="assets/img/emplacement/emplacement1.png" class="img-fluid" alt="guto-sampaix">
+              </div>
+              <div class="member-info">
+                <h4>9B Rue Lucien Sampaix</h4>
+                <span>Gusto Sampaix</span>
+                <p>Gusto Sampaix est à deux pas du Canal Saint Martin, de la Place de la République et de la Gare de l'Est...</p>
+                <a href="{{path('emplacement1')}}" class="btn btn-warning btn-block" style="border-color: transparent">En savoir plus sur ce lieu</a>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="member">
+              <div class="member-img">
+                <img src="assets/img/emplacement/emplacement2.png" class="img-fluid" alt="gusto-reaumur">
+              </div>
+              <div class="member-info">
+                <h4>41 Rue Réaumur</h4>
+                <span>Gusto Réaumur</span>
+                <p>Gusto Réamur est situé à proximité de Châtelet - Les Halles, Beaubourg et le quartier Réaumur de Sébastopol...</p>
+                <a href="{{path('emplacement2')}}" class="btn btn-warning btn-block" style="border-color: transparent">En savoir plus sur ce lieu</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="member-img">
+                <img src="assets/img/emplacement/emplacement3.png" class="img-fluid" alt="gusto-amsterdam">
+              </div>
+              <div class="member-info">
+                <h4>64 rue d'amsterdam</h4>
+                <span>Gusto d'Amsterdam</span>
+                <p>Gusto d'Amsterdam est situé au pied du métro Liège, à deux pas de la gare Saint-Lazare et de la place Clichy...</p>
+                <a href="{{path('emplacement3')}}" class="btn btn-warning btn-block" style="border-color: transparent">En savoir plus sur ce lieu</a>
+              </div>
+            </div>
+          </div>
+
+      <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="member">
+              <div class="member-img">
+                <img src="assets/img/emplacement/emplacement4.png" class="img-fluid" alt="gusto-chemin-vert">
+              </div>
+              <div class="member-info">
+                <h4>34 rue du chemin vert</h4>
+                <span>Gusto Chemin vert</span>
+                <p>Gusto du chemin vert est en constrution et sera disponible d'ici très bientôt.</p>
+                <button type="button" disabled>Bientôt disponible</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+    <!-- Fin -->
+
+    <!-- Service -->
+ <section id="services" class="about">
+
+      <div class="container" data-aos="fade-up">
+        <div class="row gx-0">
+
+          <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="content">
+              <h2>Nos services</h2>
+              <p>
+               - Projetez vos idées sur le vidéo-projecteur </br>
+               - Personne ne sera à l’écart avec la visio-conférence </br>
+               - Prêts et ventes de clés USB pour faciliter vos transferts </br>
+               - Utilisez le téléphone pour vos besoins professionnels </br>
+               - Assemblez vos idées sur un PaperBord </br>
+               - Imprimez, scannez, photocopiez </br>
+               - Surfez grâce au Wifi de qualité (fibre optique)
+              </p>
+            </div>
+          </div>
+
+          <div class="col-lg-6 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="assets/img/service.png" width="400px" class="img-fluid" alt="gusto-service">
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- Fin services -->
+
+
+  
+    <!-- ======= Partenariat section ======= -->
+    <section id="clients" class="clients">
+
+      <div class="container" data-aos="fade-up">
+
+        <header class="section-header">
+          <h2>Tous les jours nous sommes à l'écoute et apprenons de notre communauté internationale. Des startups aux sociétés du classement Fortune 500, ces entreprises continuent de s'adapter et de se réinventer.</h2>
+          <p>Ils nous font confiance, pourquoi pas vous ?</p>
+        </header>
+
+        <div class="clients-slider swiper-container">
+          <div class="swiper-wrapper align-items-center">
+            <div class="swiper-slide"><img src="assets/img/clients/microsoft.png" class="img-fluid" alt="gusto-microsoft"></div>
+            <div class="swiper-slide"><img src="assets/img/clients/sprint.png" class="img-fluid" alt="gusto-sprint"></div>
+            <div class="swiper-slide"><img src="assets/img/clients/visa.png" class="img-fluid" alt="gusto-visa"></div>
+            <div class="swiper-slide"><img src="assets/img/clients/adidas.png" class="img-fluid" alt="gusto-adidas"></div>
+            <div class="swiper-slide"><img src="assets/img/clients/uber.png" class="img-fluid" alt="gusto-uber"></div>
+            <div class="swiper-slide"><img src="assets/img/clients/blackrock.png" class="img-fluid" alt="gusto-blackrock"></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+    </section>
+    <!-- Fin -->
+    
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

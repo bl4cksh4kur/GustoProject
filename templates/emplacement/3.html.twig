@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Amsterdam - Gusto-Cowork{% endblock %}
+
+{% block navbar %} {% endblock %}
+
+{% block content %}
+
+<section id="features" class="features">
+
+      <div class="container" data-aos="fade-up">
+               <div class="row feature-icons" data-aos="fade-up">
+          <h3>Gusto d'Amsterdam</h3>
+
+          <div class="row">
+
+            <div class="col-xl-4 text-center" data-aos="fade-right" data-aos-delay="100">
+              <img src="{{ asset('assets/img/adress3.png')}}" class="img-fluid p-4" alt="gustoamsterdam">
+            </div>
+
+            <div class="col-xl-8 d-flex content">
+              <div class="row align-self-center gy-4">
+
+                <div data-aos="fade-up">
+                  <div>
+                    <h2>Plus d'informations</h2>
+                    <p>Le Gusto d'Amsterdam est situé au pied du métro Liège, à deux pas de la gare Saint-Lazare et de la place Clichy. Cet espace lumineux et aéré dans l'esprit d'un café anglo-saxon dispose également de salles pour les conférences téléphoniques et d'espaces privés pour l'organisation de réunions. Seul ou à plusieurs, ce café est parfait pour travailler à Paris.</p>
+                  </div>
+                <hr>
+                  <div data-aos="fade-up">
+                  <div>
+                    <h4>Adresse</h4>
+                    <p>64 Rue d'Amsterdam, Paris 75009</p>
+                    <p>Métro : Liège <img src="{{ asset('assets/img/metro3.svg')}}" width="20px"/> - Métro : Saint Lazare <img src="{{ asset('assets/img/metro8.svg')}}" width="20px"/> <img src="{{ asset('assets/img/metro7.svg')}}" width="20px"/></p>
+                  </div>
+                <hr>
+                  <div data-aos="fade-up">
+                  <div>
+                    <h4>Horaires</h4>
+                    <p>Lundi à Dimanche : 7h00 à 20h</p>
+                  </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End Features Section -->
+
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

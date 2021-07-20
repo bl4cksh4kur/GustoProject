@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription - Gusto-Cowork{% endblock %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+
+<section id="features" class="features">
+
+      <div class="container" data-aos="fade-up">
+        <div class="row">
+
+
+        <!-- Feature Tabs -->
+        <div class="row feture-tabs" data-aos="fade-up">
+          <div class="col-lg-6">
+
+            <!-- Tabs -->
+            <ul class="nav nav-pills mb-3">
+              <li>
+                <a class="nav-link active" data-bs-toggle="pill">Inscrivez-vous et rejoignez-nous</a>
+              </li>
+            </ul><!-- End Tabs -->
+
+<div class="card">
+  <div class="card-header">
+   Inscription
+  </div>
+
+
+<div class="card-body">
+
+{{ form_start(form)}}
+
+{{ form_row(form.firstname)}}
+{{ form_row(form.lastname)}}
+{{ form_row(form.email)}}
+{{ form_row(form.password)}}</br>
+* <a href="{{path('conditions')}}">Conditions Générales d'Utilisation</a></br></br>
+{{ form_row(form.agreeTerms)}}</br>
+{{ form_row(form.submit)}}
+
+{{ form_end(form)}}
+</div>
+</div>
+</div>
+              
+        
+
+          <div class="col-lg-6">
+            <img src="assets/img/register.png" class="img-fluid" alt="inscription">
+          </div>
+          
+          </div>
+
+          
+
+        </div><!-- End Feature Tabs -->
+
+      </div>
+
+    </section><!-- End Features Section -->
+
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

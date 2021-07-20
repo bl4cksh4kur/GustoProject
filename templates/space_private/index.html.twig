@@ -1,0 +1,104 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Espace privé - Gusto-Cowork{% endblock %}
+
+{% block navbar %} {% endblock %}
+
+{% block content %}
+
+<!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+
+        <!-- Feature Icons -->
+        <div class="row feature-icons" data-aos="fade-up">
+        <h3>Promo heure creuse : Réservez 3 heures ou + entre 9h-16h et bénéficiez de -20€</h3>
+        
+          <div class="text-center">
+          <h5>Votre propre bureau, verrouillable et clé en main, peut utiliser des salles de réunion partagées, des espaces communs et des services haut de gamme.</h5>
+          </div>
+
+               <center> {% for flash_message in app.session.flashBag.get('warning') %}
+                        <div class="alert alert-warning" role="alert" id="flash-alert-workspace-standard">
+                            <b>{{ flash_message }}</b>
+                        </div>
+                    {% endfor %} </center>
+
+             <!-- DatePicker -->
+            <center></br>
+  <div class="row col-md-4">
+  <div class="card">
+  <div class="card-header">
+    Votre réservation 
+  </div>
+
+
+<div class="card-body"> 
+          {{ form_start(form)}}
+          {{ form_row(form.startDate)}}
+          {{ form_row(form.endDate)}}</br>
+         <button class="btn btn-warning btn-block" id="buttondispo">{{ button_label|default('Vérifier la disponibilité') }}</button>
+          {{ form_end(form)}}
+                
+              </div>
+              </div>
+              </div>
+              </center>
+ <!-- DatePicker -->
+
+          <div class="row">
+
+            <div class="col-xl-4 text-center" data-aos="fade-right" data-aos-delay="100">
+              <img src="assets/img/workspace.png" class="img-fluid p-4" alt="gusto-workspace">
+            </div>
+
+            <div class="col-xl-8 d-flex content">
+              <div class="row align-self-center gy-4">
+
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                  <i class="ri-stack-line"></i>
+                  <div>
+                    <h4>Etape 1 : Visiter</h4>
+                    <p>Trouvez l'espace de travail idéal sur le site Gusto-Coffee. Puis découvrez-le en personne une fois la réservation validé.</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+                  <i class="ri-brush-4-line"></i>
+                  <div>
+                    <h4>Etape 2 : Réserver</h4>
+                    <p>Aimez-vous ce que vous voyez ? Réservez votre bureau de travail privé en ligne dès maintenant.</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="ri-magic-line"></i>
+                  <div>
+                    <h4>Etape 3 : Payer</h4>
+                    <p>Une fois que vous avez choisi votre bureau avec votre horaires passez au paiement.</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
+                  <i class="ri-magic-line"></i>
+                  <div>
+                    <h4>Etape 4 : Travailler</h4>
+                    <p>Nous nous assurons que votre bureau est entièrement fonctionnel, afin que vous puissiez commencer à travailler dès le premier jour.</p>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- End Feature Icons -->
+      </div>
+      
+                    
+
+    </section><!-- End Features Section -->
+ 
+
+
+{% endblock %}
+
+{% block footer %}{% endblock %}
+

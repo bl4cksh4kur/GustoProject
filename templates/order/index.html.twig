@@ -1,0 +1,91 @@
+
+{% block stylesheets %}
+
+   <link href="{{ asset('assets/css/stylepay.css')}}" rel="stylesheet">
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+
+</br>
+</br>
+<div class="container mt-4" data-aos="fade-up">
+<h2 class="my-4 text-center">Paiement de votre commande</h2>
+ <hr>
+<div class="card">
+  <div class="card-header">
+    Votre selection
+  </div>
+    {% set total = null %}
+    {% for product in cart %}
+    
+			  <div class="card-body">
+      
+          <p class="card-text"><b>Produit: </b>{{ product.product.name }}</p>
+          <p class="card-text"><b>Prix : </b>{{ (product.product.price / 100)| number_format(2, ',', '.')}} €</p>
+          <p class="card-text"><b>Quantité : </b>{{ product.quantity }}</p>
+          <p class="card-text"><img src="/uploads/{{ product.product.illustration}}" alt="{{ product.product.name }}" width="100px"></p>
+          <hr>
+
+          
+      {% set total = total + (product.product.price * product.quantity) %}
+      {% endfor %}
+      
+				</div>
+			</div>
+      
+		</div>
+	</div> 
+
+  </br>
+
+{# STRIPE #}
+<div class="container">
+
+  <div class="card">
+  <div class="card-header">
+    Paiement
+  </div>
+  <div class="card-body">
+    <center>
+    <img src="{{asset('assets/img/3.gif')}}" class="img-fluid" width="200"></br><br>
+    <img src="{{asset('assets/img/master2.png')}}" class="img-fluid" style="width: 40px">
+    <img src="{{asset('assets/img/visa.png')}}" class="img-fluid" style="width: 30px">
+    <img src="{{asset('assets/img/master1.png')}}" class="img-fluid" style="width: 40px">
+    </center>
+     <form method="post" id="payment-form">
+      <div class="form-row">
+        <div id="card-element" class="form-control">
+          <!-- a Stripe Element will be inserted here. -->
+        </div>
+        <!-- Used to display form errors -->
+        <div id="card-errors" role="alert"></div>
+      </div>
+      <hr>
+      
+       {{ form_start(form) }}
+        {{ form_row(form.comments) }}
+           <button class="btn btn-warning btn-lg btn-block">Total à payer : {{ (total / 100)| number_format(2, ',', '.')}} € | Payer maintenant !</button>
+       {{ form_end(form) }}
+    </form>
+
+ {# FIN STRIPE #}
+
+</div>
+</div>
+</div>
+</div>
+
+{% endblock %}
+
+  {% block javascript %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="{{asset('assets/js/stripe.js')}}"></script>
+  <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+  {% endblock %}
+

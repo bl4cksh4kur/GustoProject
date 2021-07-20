@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block navbar %} {% endblock %}
+
+{% block title %}Nos produits - Gusto-Cowork{% endblock %}
+
+{% block content %}
+
+<section id="spaces" class="values">
+
+    <div class="container" data-aos="fade-up">
+
+        
+         <header class="section-header">
+          <h2>Une petite faim ?</h2>
+          <p>Boisson, Nourriture</p>
+            
+        </header>
+
+        <div class="row">
+
+    {% for product in products %}
+            <div class="col-lg-4 mt-4 mt-lg-0">
+            <div class="box" data-aos="fade-up" data-aos-delay="600">
+              <img src="/uploads/{{ product.illustration }}" width="200px">
+                    <h3>{{ product.name }}</h3>
+                    {{ (product.price / 100)| number_format(2, ',', '.')}} € 
+              </br><a href="{{path('add_to_cart', { 'id' : product.id })}}" class="btn btn-warning">Ajouter au panier</a>
+            </div>
+            </div>
+
+     {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

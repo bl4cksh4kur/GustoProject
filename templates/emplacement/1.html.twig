@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sampaix - Gusto-Cowork{% endblock %}
+
+{% block navbar %} {% endblock %}
+
+{% block content %}
+
+<section id="features" class="features">
+
+      <div class="container" data-aos="fade-up">
+               <div class="row feature-icons" data-aos="fade-up">
+          <h3>Gusto Sampaix</h3>
+
+          <div class="row">
+
+            <div class="col-xl-4 text-center" data-aos="fade-right" data-aos-delay="100">
+              <img src="{{ asset('assets/img/adress1.png')}}" class="img-fluid p-4" alt="gustosampaix">
+            </div>
+
+            <div class="col-xl-8 d-flex content">
+              <div class="row align-self-center gy-4">
+
+                <div data-aos="fade-up">
+                  <div>
+                    <h2>Plus d'informations</h2>
+                    <p>Gusto Sampaix est à deux pas du Canal Saint Martin, de la Place de la République et de la Gare de l'Est. Cet espace lumineux et aéré dans l'esprit d'un café anglo-saxon dispose également de salles pour les conférences téléphoniques et d'espaces privés pour l'organisation de réunions. Seul ou à plusieurs, ce café est parfait pour travailler à Paris.</p>
+                  </div>
+                <hr>
+                  <div data-aos="fade-up">
+                  <div>
+                    <h4>Adresse</h4>
+                    <p>9B Rue Lucien Sampaix, Paris 75010</p>
+                    <p>Métro : J. Bonsergent <img src="{{ asset('assets/img/metro5.svg')}}" width="20px"/> - Métro : République : <img src="{{ asset('assets/img/metro3.svg')}}" width="20px"/> <img src="{{ asset('assets/img/metro4.svg')}}" width="20px"/></p>
+                  </div>
+                <hr>
+                  <div data-aos="fade-up">
+                  <div>
+                    <h4>Horaires</h4>
+                    <p>Lundi à Dimanche : 7h00 à 20h</p>
+                  </div>
+
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- End Features Section -->
+
+
+{% endblock %}
+
+{% block footer %}{% endblock %}

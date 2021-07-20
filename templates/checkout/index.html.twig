@@ -1,0 +1,97 @@
+{% block stylesheets %}
+
+   <link href="{{ asset('assets/css/stylepay.css')}}" rel="stylesheet">
+
+{% endblock %}
+
+
+
+{% block content %}
+
+
+{% set debuthc = "08:00" %}
+{% set finhc = "17:00" %}
+{% set promohour = 3 %}
+{% set promohour2 = space.price %}
+
+</br>
+</br>
+<div class="container mt-4" data-aos="fade-up">
+<h2 class="my-4 text-center">Paiement de votre réservation</h2>
+<hr>
+
+<div class="card">
+  <div class="card-header">
+    Votre réservation de salle
+  </div>
+
+				<div class="card-body">
+      
+          <p class="card-text"><b>Nom de la salle : </b>{{ space.title }}</p>
+          <p class="card-text"><b>Type d'espace : </b>{{ space.nbPlace }} places</strong> | {{ space.price }} € / heure</p>
+          <p class="card-text"><b>Adresse : </b>{{ space.adress }}</p>
+          <p class="card-text"><b>Nombre d'heures choisies : </b>{{ locationDuration }}h </p>
+          <p class="card-text"><b>Prix : </b>{{prixSansReduction}}€</p>
+          <hr>
+          <h3>Votre arrivée :</h3>
+          <strong><p class="text-center">{{startDate | date("d/m/Y à H:i")}}</p></strong>
+          <h3>Votre départ :</h3>
+          <strong><p class="text-center">{{endDate | date("d/m/Y à H:i")}}</p></strong>
+          <hr>
+                {# Prix total #}
+                {% if startDate|date("H:i") > debuthc and endDate|date("H:i") < finhc %}
+                <center><b><p style="font-size: 15px"><h3>Prix total de la réservation :</h3> </p></b><p style=" font-size: 22px"><small><strong><s> {{ prixSansReduction  }}€</s></strong></small><strong>{{ prixTotal }}€</strong></p></center>
+                {% else %}
+                <center><b><p style="font-size: 22px"><h3>Prix total de la réservation :</h3> </p></b><p style=" font-size: 22px"><strong> {{ prixTotal  }}€</strong></p></center>
+                {% endif %}
+
+				</div>
+			</div>
+		</div>
+	</div> 
+</br>
+
+{# STRIPE #}
+<div class="container">
+    <div class="card">
+  <div class="card-header">
+    Paiement
+  </div>
+
+<div class="card-body">
+  <center>
+    <img src="{{asset('assets/img/3.gif')}}" class="img-fluid" width="200"></br><br>
+    <img src="{{asset('assets/img/master2.png')}}" class="img-fluid" style="width: 40px">
+    <img src="{{asset('assets/img/visa.png')}}" class="img-fluid" style="width: 30px">
+    <img src="{{asset('assets/img/master1.png')}}" class="img-fluid" style="width: 40px">
+    </center>
+    <form method="post" id="payment-form">
+      <div class="form-row">
+        <div id="card-element" class="form-control">
+          <!-- a Stripe Element will be inserted here. -->
+        </div>
+        <!-- Used to display form errors -->
+        <div id="card-errors" role="alert"></div>
+      </div>
+      <hr>
+      
+       {{ form_start(form) }}
+        {{ form_row(form.comments) }}
+           <button class="btn btn-success btn-lg btn-block">Payer et valider ma réservation</button>
+       {{ form_end(form) }}
+    </form>
+
+  </div>
+</div>
+</div>
+</div></br></br>
+
+{% endblock %}
+
+  {% block javascript %}
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://js.stripe.com/v3/"></script>
+  <script src="{{asset('assets/js/stripe.js')}}"></script>
+  <script src="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"></script>
+  {% endblock %}
+
